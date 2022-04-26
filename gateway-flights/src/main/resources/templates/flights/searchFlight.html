@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" >
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+          crossorigin="anonymous" th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css}">
+
+    <script src="/webjars/jquery/2.2.4/jquery.min.js" th:src="@{/webjars/jquery/2.2.4/jquery.min.js}"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+            integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+            crossorigin="anonymous" th:src="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js}"></script>
+
+    <title>List of flights</title>
+</head>
+<body>
+    <div class="container-fluid" style="margin-top: 20px">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="panel panel-primary">
+
+                    <div class="panel-heading">
+                        <h1 class="panel-title">Flights</h1>
+                    </div>
+                    <form action="#" th:action="@{/search-flights}" th:object="${flight}" method="post">
+	                    <div class="panel-body">
+	                        <div class="table-responsive" th:if="${not #lists.isEmpty(flight)}">
+	                        
+		                        <div class="row">
+		                        	<label>ID</label>
+		                        	<input type="text" th:field="*{id}" />
+		                        </div>
+		                        <div class="row">
+		                        	<label>Depart</label>
+		                        	 <input type="text" th:field="*{departureDate}"/>
+		                        </div>
+		                         <div class="row">
+		                        	<label>From</label>
+		                        	<input type="text" th:field="*{departureAirportCode}"/>
+		                        </div>
+		                         <div class="row">
+		                        	<label>Return</label>
+		                        	<input type="text" th:field="*{arrivalDate}"/>
+		                        </div>
+		                        <div class="row">
+		                        	<label>To</label>
+		                        	<input type="text" th:field="*{arrivalAirportCode}"/>
+		                        </div>
+		                        <div class="row">
+		                        	<label>Price</label>
+		                        	<input type="text" th:field="*{price}"/>
+		                        </div>
+		                        
+		                        <div class="row">
+		                        	<input type="submit" value="Submit" /> <input type="reset" value="Reset" />
+		                        </div>
+						                 
+	                        </div>
+	                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
